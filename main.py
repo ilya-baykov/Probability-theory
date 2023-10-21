@@ -33,18 +33,20 @@ print(1 / 12 + 11 / 12 * 1 / 12)
 print(1 / 12 + 11 / 12 * 1 / 12 + 11 / 12 * 11 / 12 * 1 / 12 + 11 / 12 * 11 / 12 * 11 / 12 * 1 / 12)
 
 
-def search_cnt(probability: float = 0.99):
-    def helper(current_probability: float):
-        nonlocal cnt
+def search_cnt(start_probability, probability: float = 0.99):
+    def helper(current_probability: float = start_probability):
+        nonlocal cnt, start_probability
         print(f" за {cnt} бросков вероятность стала равна: \t {current_probability}")
         if current_probability >= probability:
             return cnt
         cnt += 1
-        return helper(round(11 / 12 * current_probability + 1 / 12, 3))
+        return helper(round((1 - start_probability) * current_probability + start_probability, 3))
 
     cnt = 1
     return helper
 
 
-task_3_3 = search_cnt()
-print(task_3_3(1 / 12))
+task_3_3 = search_cnt(1 / 12)
+print(task_3_3())
+if __name__ == '__main__':
+    pass
