@@ -54,17 +54,15 @@ class Analysis:
 
 lst = PrimeGenerate(1, 1000).prime_list
 probably_A = DigitSumCalc.filter_multiples_of_five(DigitSumCalc.digit_summ_calc(lst))
-print("События А:", probably_A)
 probably_B = DigitSumCalc.first_digit(lst)
-print("События B:", probably_B)
 probably_C = DigitSumCalc.two_digit_number(lst)
+
+symmetric_difference_A_C = Analysis.symmetric_difference(probably_A, probably_C)
+difference_B = Analysis.difference(symmetric_difference_A_C, probably_B)
+print("События А:", probably_A)
+print("События B:", probably_B)
 print("События C:", probably_C)
 print("*" * 300)
-symmetric_difference_A_C = Analysis.symmetric_difference(probably_A, probably_C)
 print("Симметричная разница мужду событиями А и событиями C:", symmetric_difference_A_C, sep='\n')
-difference_B = Analysis.difference(symmetric_difference_A_C, probably_B)
 print("Разница между событиями (A sim_diff B) и Событиями B", difference_B, sep='\n')
-print()
-print()
-print()
 print("Итоговая Вероятность искомого события составила ~ ", round(len(difference_B) / len(lst), 4))
