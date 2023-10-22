@@ -1,4 +1,3 @@
-
 class PrimeGenerate:
     def __init__(self, start: int = 1, stop: int = 100):
         self.start = start
@@ -53,8 +52,19 @@ class Analysis:
         return sorted(list(set(arr_1).difference(set(arr_2))))
 
 
-lst = PrimeGenerate().prime_list
-print(DigitSumCalc.two_digit_number(lst))
-print(DigitSumCalc.first_digit(lst, 1))
-print(Analysis.symmetric_difference(DigitSumCalc.first_digit(lst), DigitSumCalc.two_digit_number(lst)))
-print(Analysis.difference(DigitSumCalc.first_digit(lst), DigitSumCalc.two_digit_number(lst)))
+lst = PrimeGenerate(1, 1000).prime_list
+probably_A = DigitSumCalc.filter_multiples_of_five(DigitSumCalc.digit_summ_calc(lst))
+print("События А:", probably_A)
+probably_B = DigitSumCalc.first_digit(lst)
+print("События B:", probably_B)
+probably_C = DigitSumCalc.two_digit_number(lst)
+print("События C:", probably_C)
+print("*" * 300)
+symmetric_difference_A_C = Analysis.symmetric_difference(probably_A, probably_C)
+print("Симметричная разница мужду событиями А и событиями C:", symmetric_difference_A_C, sep='\n')
+difference_B = Analysis.difference(symmetric_difference_A_C, probably_B)
+print("Разница между событиями (A sim_diff B) и Событиями B", difference_B, sep='\n')
+print()
+print()
+print()
+print("Итоговая Вероятность искомого события составила ~ ", round(len(difference_B) / len(lst), 4))

@@ -13,7 +13,5 @@ def placement(k: int = 1, n: int = 2) -> int:
     return math.factorial(n) // math.factorial(n - k)
 
 
-
-
 if __name__ == '__main__':
-    pass
+    print(math.factorial(12))
