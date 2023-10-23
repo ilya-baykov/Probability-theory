@@ -19,4 +19,4 @@ def bernoulli(count: int = 5, favorable_events: int = 5, probability: float = 0.
 
 
 if __name__ == '__main__':
-    ...
+    pass
