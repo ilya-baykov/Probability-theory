@@ -66,3 +66,4 @@ print("*" * 300)
 print("Симметричная разница мужду событиями А и событиями C:", symmetric_difference_A_C, sep='\n')
 print("Разница между событиями (A sim_diff B) и Событиями B", difference_B, sep='\n')
 print("Итоговая Вероятность искомого события составила ~ ", round(len(difference_B) / len(lst), 4))
+
