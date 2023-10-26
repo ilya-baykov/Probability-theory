@@ -18,5 +18,9 @@ def bernoulli(count: int = 5, favorable_events: int = 5, probability: float = 0.
             1 - probability) ** (count - favorable_events)
 
 
+def poisson(_lambda: int = 1, count: int = 11, period: int = 3):
+    return ((_lambda * period) ** count) * (math.e ** (-1 * _lambda * period)) / math.factorial(count)
+
+
 if __name__ == '__main__':
     pass
